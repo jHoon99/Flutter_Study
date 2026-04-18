@@ -1,0 +1,43 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+rootProject.buildDir = '../build'
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(':app')
+}
+
+gradle.afterProject { proj ->
+    if (proj.plugins.hasPlugin("com.android.library")) {
+        proj.android {
+            if (namespace == null || namespace.isEmpty()) {
+                def manifest = file("${proj.projectDir}/src/main/AndroidManifest.xml")
+                if (manifest.exists()) {
+                    def pkg = new XmlParser().parse(manifest).attribute('package')
+                    if (pkg != null) {
+                        namespace pkg
+                    }
+                }
+            }
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_17
+                targetCompatibility JavaVersion.VERSION_17
+            }
+        }
+        proj.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).configureEach {
+            kotlinOptions {
+                jvmTarget = "17"
+            }
+        }
+    }
+}
+
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

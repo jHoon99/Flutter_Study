@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(\"/Users/jh/Library/Application Support/GitKrakenCLI/gk\" --version)",
+      "Bash(\"/Users/jh/Library/Application Support/GitKrakenCLI/gk\" version)",
+      "Bash(\"/Users/jh/Library/Application Support/GitKrakenCLI/gk\" -v)",
+      "Bash(\"/Users/jh/Library/Application Support/GitKrakenCLI/gk\" -V)",
+      "Bash(flutter:*)",
+      "WebSearch",
+      "Bash(git -C /Users/jh/projects/fastcampus_flutter/flutter_Ch02/flutter_toss_app/fast_app_base status:*)"
+    ]
+  }
+}
