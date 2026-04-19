@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:fast_app_base/common/cli_common.dart';
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/widget/round_button_theme.dart';
 import 'package:fast_app_base/common/widget/w_round_button.dart';
@@ -25,30 +26,41 @@ class HomeFragment extends StatelessWidget {
       color: Colors.black,
       child: Stack(
         children: [
-          SingleChildScrollView(
-            padding: const EdgeInsets.only(top: 60, left: 16, right: 16),
-            child: Column(
-              spacing: 10,
-              children: [
-                BigButton(
-                  '토스뱅크',
-                  onTap: () => context.showSnackbar('토스뱅크를 눌렀어요.'),
-                ),
-                RoundedContainer(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text(
-                      '자산',
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(height: 8),
-                    ...bankAccounts.map(
-                      (e) => BankAccountWidget(account: e),
-                    ),
-                  ],
-                ))
-              ],
+          RefreshIndicator(
+            edgeOffset: 60,
+            onRefresh: () async {
+              await sleepAsync(500.ms);
+            },
+            child: SingleChildScrollView(
+              padding: EdgeInsets.only(
+                top: 60,
+                left: 16,
+                right: 16,
+                bottom: MediaQuery.of(context).padding.bottom + 16,
+              ),
+              child: Column(
+                spacing: 10,
+                children: [
+                  BigButton(
+                    '토스뱅크',
+                    onTap: () => context.showSnackbar('토스뱅크를 눌렀어요.'),
+                  ),
+                  RoundedContainer(
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        '자산',
+                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(height: 8),
+                      ...bankAccounts.map(
+                        (e) => BankAccountWidget(account: e),
+                      ),
+                    ],
+                  ))
+                ],
+              ),
             ),
           ),
           const TossAppBar(),
