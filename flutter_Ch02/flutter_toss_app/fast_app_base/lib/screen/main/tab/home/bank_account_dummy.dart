@@ -10,14 +10,28 @@ final bankAccountKakao = BankAccount(bankKakao, 300005500, accountTypeName: '입
 // List
 final bankAccounts = [
   bankAccountShinhan1,
+  bankAccountShinhan1,
+  bankAccountToss,
+  bankAccountShinhan1,
+  bankAccountShinhan1,
+  bankAccountToss,
+  bankAccountShinhan1,
   bankAccountShinhan2,
+  bankAccountKakao,
   bankAccountShinhan3,
   bankAccountToss,
   bankAccountKakao,
 ];
 
 // Map
+final bankAccountMap = {'shinhan1': bankAccountShinhan1, 'shinhan2': bankAccountShinhan2};
+
 // Set
-main() {
-  print(bankAccounts[1].accountTypeName);
-}
+final bankAccountSet = {
+  bankAccountShinhan1,
+  bankAccountShinhan2,
+  bankAccountShinhan3,
+  bankAccountToss,
+  bankAccountKakao,
+};
+
