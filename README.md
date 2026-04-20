@@ -1,10 +1,26 @@
 # Flutter Study
 
+[![Since](https://img.shields.io/badge/since-2026.03-333333.svg?style=flat-square)](https://github.com/jHoon99/Flutter_Study)
+
+### Development
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![Android Studio](https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=androidstudio&logoColor=white)
+![Xcode](https://img.shields.io/badge/Xcode-147EFB?style=for-the-badge&logo=xcode&logoColor=white)
 ![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)
 
-[![Since](https://img.shields.io/badge/since-2026.03-333333.svg?style=flat-square)](https://github.com/jHoon99/Flutter_Study)
+### Backend & Services
+![Firebase](https://img.shields.io/badge/Firebase-DD2C00?style=for-the-badge&logo=firebase&logoColor=white)
+![REST API](https://img.shields.io/badge/REST%20API-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+
+### State Management
+![GetX](https://img.shields.io/badge/GetX-8B14FE?style=for-the-badge&logo=getx&logoColor=white)
+![Provider](https://img.shields.io/badge/Provider-FF7043?style=for-the-badge&logoColor=white)
+![BLoC](https://img.shields.io/badge/BLoC-01579B?style=for-the-badge&logoColor=white)
+
+### AI & ML
+![Google ML Kit](https://img.shields.io/badge/ML%20Kit-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
 Flutter 독학 기록. 기초부터 실전 클론코딩까지.
 
