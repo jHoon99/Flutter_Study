@@ -8,6 +8,6 @@ class PopularStock extends SimpleStock with StockDataTransformatter {
   final int currentPrice;
 
   PopularStock(
-      {required this.yesterdayClosePrice, required this.currentPrice, required String stockName}
+      {required String stockName, required this.yesterdayClosePrice, required this.currentPrice}
       ) : super(stockName);
 }

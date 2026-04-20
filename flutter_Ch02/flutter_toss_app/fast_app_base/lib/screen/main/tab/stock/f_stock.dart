@@ -1,4 +1,5 @@
 import 'package:fast_app_base/common/common.dart';
+import 'package:fast_app_base/screen/main/tab/stock/search/f_search_stock.dart';
 import 'package:fast_app_base/screen/main/tab/stock/tab/f_my_stock.dart';
 import 'package:fast_app_base/screen/main/tab/stock/tab/f_todays_discovery.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class _StockFragmentState extends State<StockFragment> with SingleTickerProvider
           actions: [
             ImageButton(
                 onTap: () {
-                  context.showSnackbar('검색');
+                  Nav.push(SearchFragment());
                 },
                 imagePath: '$basePath/icon/stock_search.png'),
             ImageButton(
