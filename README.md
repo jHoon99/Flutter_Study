@@ -22,7 +22,7 @@
 ### AI & ML
 ![Google ML Kit](https://img.shields.io/badge/ML%20Kit-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
-Flutter 독학 기록. 기초부터 실전 클론코딩까지.
+Flutter 독학 끄적
 
 ---
 
