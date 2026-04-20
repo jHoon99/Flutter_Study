@@ -5,7 +5,6 @@
 ![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)
 
 [![Since](https://img.shields.io/badge/since-2026.03-333333.svg?style=flat-square)](https://github.com/jHoon99/Flutter_Study)
-[![Hits](https://hitscounter.dev/api/hit/count/tag.svg?url=https%3A%2F%2Fgithub.com%2FjHoon99%2FFlutter_Study&count_bg=%2379C83D&title_bg=%23555555&title=hits&edge_flat=true)](https://hitscounter.dev)
 
 Flutter 독학 기록. 기초부터 실전 클론코딩까지.
 
