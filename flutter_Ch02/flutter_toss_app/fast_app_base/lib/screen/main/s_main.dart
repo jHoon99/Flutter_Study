@@ -49,6 +49,8 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
           color: Colors.black,
           padding: EdgeInsets.only(bottom: extendBody ? 60 - bottomNavigationBarBorderRadius : 0),
           child: SafeArea(
+            left: false,
+            right: false,
             bottom: !extendBody,
             child: pages,
           ),
