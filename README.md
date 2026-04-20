@@ -1,7 +1,11 @@
 # Flutter Study
 
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
+![macOS](https://img.shields.io/badge/macOS-000000?style=for-the-badge&logo=apple&logoColor=white)
+
 [![Since](https://img.shields.io/badge/since-2026.03-333333.svg?style=flat-square)](https://github.com/jHoon99/Flutter_Study)
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FjHoon99%2FFlutter_Study&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FjHoon99%2FFlutter_Study&count_bg=%2379C83D&title_bg=%23555555&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
 
 Flutter 독학 기록. 기초부터 실전 클론코딩까지.
 
@@ -28,11 +32,3 @@ Flutter 독학 기록. 기초부터 실전 클론코딩까지.
 ### 토스 앱 구현 범위
 
 > 홈 화면 / 주식 탭 / 혜택 탭 / 알림 화면 / 다크모드 테마 시스템 / 멀티탭 네비게이션
-
----
-
-## 환경
-
-- Flutter SDK
-- Dart
-- macOS (Apple Silicon)
