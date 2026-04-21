@@ -103,3 +103,6 @@ app.*.map.json
 
 # Metadata
 .metadata
+
+# Claude Code
+.claude/
