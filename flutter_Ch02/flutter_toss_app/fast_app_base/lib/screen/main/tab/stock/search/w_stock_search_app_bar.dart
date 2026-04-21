@@ -1,3 +1,4 @@
+import 'package:fast_app_base/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/http/src/utils/utils.dart';
 
@@ -16,7 +17,9 @@ class StockSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           children: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Nav.pop(context);
+              },
               icon: const Arrow(
                 direction: AxisDirection.left,
               ),
