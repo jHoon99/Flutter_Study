@@ -1,12 +1,14 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
 import 'app.dart';
 import 'common/data/preference/app_preferences.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await RiveNative.init();
   await EasyLocalization.ensureInitialized();
   await AppPreferences.init();
   timeago.setLocaleMessages('ko', timeago.KoMessages()); // Add messages

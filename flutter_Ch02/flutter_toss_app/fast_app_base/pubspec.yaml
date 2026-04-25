@@ -73,6 +73,7 @@ dependencies:
   timeago: ^3.7.1
   flutter_animate: ^4.5.2
   animations: ^2.2.0
+  rive: ^0.14.6
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +108,7 @@ flutter:
   assets:
     - assets/json/
     - assets/image/
+    - assets/rive/
     - assets/image/icon/
     - assets/image/flag/
     - assets/image/splash/

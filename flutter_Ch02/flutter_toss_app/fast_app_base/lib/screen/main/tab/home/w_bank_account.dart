@@ -1,5 +1,6 @@
 import 'package:fast_app_base/common/widget/w_rounded_container.dart';
 import 'package:fast_app_base/screen/main/tab/home/vo/vo_bank_account.dart';
+import 'package:fast_app_base/screen/main/tab/home/w_rive_like_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/dart/extension/context_extension.dart';
@@ -34,6 +35,7 @@ class BankAccountWidget extends StatelessWidget {
           ),
         ),
         const Spacer(),
+        RiveLikeButton(),
         RoundedContainer(
           backgroundColor: context.appColors.buttonBackground,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
