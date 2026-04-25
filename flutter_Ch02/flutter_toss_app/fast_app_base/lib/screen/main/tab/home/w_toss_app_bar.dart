@@ -11,7 +11,8 @@ class TossAppBar extends StatefulWidget {
 }
 
 class _TossAppBarState extends State<TossAppBar> {
-  bool _showRedDot = false;
+  final bool _showRedDot = false;
+  int _tappingCount = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +21,34 @@ class _TossAppBarState extends State<TossAppBar> {
       height: 60,
       color: context.appColors.appBarBackground,
       child: Row(spacing: 10, children: [
-        Image.asset(
-          '$basePath/icon/toss.png',
-          height: 30,
-        ),
-        const Spacer(),
-        Image.asset(
+        // AnimatedContainer(
+        //   duration: 1000.ms,
+        //   curve: Curves.decelerate,
+        //   height: _tappingCount > 1 ? 60 : 30,
+        //   child: Image.asset(
+        //     '$basePath/icon/toss.png',
+        //     // height: 30,
+        //   ),
+        // ),
+        AnimatedCrossFade(
+          firstChild: Image.asset(
+            '$basePath/icon/toss.png',
+            height: 30,
+          ),
+          secondChild: Image.asset(
           '$basePath/icon/map_point.png',
           height: 30,
+        ),
+          crossFadeState: _tappingCount < 2 ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+          duration: 1500.ms,
+        ),
+        const Spacer(),
+        GestureDetector(
+          onTap: () => setState(() => _tappingCount++),
+          child: Image.asset(
+            '$basePath/icon/map_point.png',
+            height: 30,
+          ),
         ),
         Tap(
           onTap: () {
