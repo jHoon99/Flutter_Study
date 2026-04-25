@@ -1,5 +1,6 @@
 import 'package:fast_app_base/common/cli_common.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nav/nav.dart';
 
 import '../../common/util/async/flutter_async.dart';

@@ -10,6 +10,7 @@ import 'package:fast_app_base/screen/main/tab/home/bank_account_dummy.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_bank_account.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_toss_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 
 import '../../../../common/widget/w_big_button.dart';
 import '../../../dialog/d_color_bottom.dart';
@@ -60,7 +61,7 @@ class HomeFragment extends StatelessWidget {
                     ],
                   ))
                 ],
-              ),
+              ).animate().slide(duration: 1000.ms).fadeIn(),
             ),
           ),
           const TossAppBar(),
