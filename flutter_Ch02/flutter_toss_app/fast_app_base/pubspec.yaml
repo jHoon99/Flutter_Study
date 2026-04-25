@@ -72,6 +72,7 @@ dependencies:
   json_annotation: ^4.8.0
   timeago: ^3.7.1
   flutter_animate: ^4.5.2
+  animations: ^2.2.0
 
 dev_dependencies:
   flutter_test:
