@@ -7,6 +7,7 @@ import 'package:fast_app_base/common/widget/w_round_button.dart';
 import 'package:fast_app_base/common/widget/w_rounded_container.dart';
 import 'package:fast_app_base/screen/dialog/d_message.dart';
 import 'package:fast_app_base/screen/main/tab/home/bank_account_dummy.dart';
+import 'package:fast_app_base/screen/main/tab/home/s_number.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_bank_account.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_toss_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,12 @@ class HomeFragment extends StatelessWidget {
                 children: [
                   BigButton(
                     '토스뱅크',
-                    onTap: () => context.showSnackbar('토스뱅크를 눌렀어요.'),
+                    onTap: () async {
+                      print('start');
+                      final result = await Nav.push(const NumberScreen());
+                      print(result);
+                      print('end');
+                    },
                   ),
                   RoundedContainer(
                       child: Column(
