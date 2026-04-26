@@ -28,7 +28,7 @@ Flutter 독학 끄적
 
 ## Ch01. 기본기 다지기
 
-- [블로그 포스트](https://jHoon99.github.io/p/ch01-flutter-basics/)
+- [Ch01. Flutter 기초 - 위젯부터 인스타 클론까지](https://jHoon99.github.io/p/ch01-flutter-basics/)
 
 - [flutter_widget](flutter_Ch01/flutter_widget) - 위젯 트리 구조 이해하기
 - [flutter_layout](flutter_Ch01/flutter_layout) - Row, Column, Container 레이아웃
@@ -43,9 +43,7 @@ Flutter 독학 끄적
 
 ## Ch02. 실전 앱 개발
 
+- [Ch02. 토스 앱 클론 - 실전 UI와 상태관리](https://jHoon99.github.io/p/ch02-toss-clone/)
+
 - [flutter_count_app](flutter_Ch02/flutter_count_app) - 카운터 앱으로 상태관리 복습
-- [flutter_toss_app](flutter_Ch02/flutter_toss_app) - 토스 앱 클론코딩
-
-### 토스 앱 구현 범위
-
-> 홈 화면 / 주식 탭 / 혜택 탭 / 알림 화면 / 검색 화면 (자동완성) / 설정 화면 / 다크모드 테마 시스템 / 멀티탭 네비게이션
+- [flutter_toss_app](flutter_Ch02/flutter_toss_app) - 토스 앱 클론코딩 (멀티탭 네비게이션, GetX, 다크모드 테마, 검색 자동완성)
