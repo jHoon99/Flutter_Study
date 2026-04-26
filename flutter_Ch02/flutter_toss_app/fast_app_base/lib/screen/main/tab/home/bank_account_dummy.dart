@@ -128,7 +128,7 @@ main() {
   // 생성
   final list = [];
   final set = {bankAccountShinhan1, bankAccountShinhan2};
-  final map = {'shinhan1': bankAccountShinhan1};
+  final map1 = {'shinhan1': bankAccountShinhan1};
 
 
   // 제네릭
