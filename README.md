@@ -28,6 +28,8 @@ Flutter 독학 끄적
 
 ## Ch01. 기본기 다지기
 
+- [블로그 포스트](https://jHoon99.github.io/p/ch01-flutter-basics/)
+
 - [flutter_widget](flutter_Ch01/flutter_widget) - 위젯 트리 구조 이해하기
 - [flutter_layout](flutter_Ch01/flutter_layout) - Row, Column, Container 레이아웃
 - [flutter_react](flutter_Ch01/flutter_react) - 반응형 레이아웃 설정
