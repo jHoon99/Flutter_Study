@@ -1,4 +1,7 @@
+import 'dart:collection';
+
 import 'package:fast_app_base/screen/main/tab/home/banks_dummy.dart';
+import 'package:fast_app_base/screen/main/tab/home/vo/vo_bank.dart';
 import 'package:fast_app_base/screen/main/tab/home/vo/vo_bank_account.dart';
 
 final bankAccountShinhan1 = BankAccount(bankShinhan, 3000000, accountTypeName: '신한 주거래 우대통장(저축예금)');
@@ -94,6 +97,21 @@ main() {
     print(account.toString());
     print(account.accountTypeName);
   }
+
+  // Map
+  final map = HashMap<String, BankAccount>();
+  map['toss'] = bankAccountToss;
+  map['shinhan1'] = bankAccountShinhan1;
+  if(map.containsKey('shinhan1')) {
+    map['shinhan2'] = bankAccountShinhan2;
+  }
+
+  final tossAccount = map['toss'];
+
+  // 생성
+  final list = [];
+  final set = {bankAccountShinhan1, bankAccountShinhan2};
+  final map = {'shinhan1': bankAccountShinhan1};
 }
 
 extension ListExtension on List {
