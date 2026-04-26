@@ -35,3 +35,42 @@ final bankAccountSet = {
   bankAccountKakao,
 };
 
+abstract class Animal {
+  void eat() {}
+}
+
+class Dog extends Animal {
+  @override
+  void eat() {
+    print('dog eat');
+  }
+}
+
+class Tiger extends Animal {
+  void eat() {}
+}
+
+class Cat extends Animal {
+  void eat() {}
+}
+
+main() {
+  final dog1 = Dog();
+  final dog2 = Dog();
+  final dog3 = Dog();
+  final dog4 = Dog();
+
+  final cat1 = Cat();
+  final cat2 = Cat();
+  final cat3 = Cat();
+
+  final list = [dog1, dog2, dog3, dog4, cat1, cat2, cat3];
+  for (final animal in list) {
+    // animal.eat(); 이렇게는 타입이 섞여있어서 list의 타입이 분명하지 않기때문에(Object) 불가능.
+    if(animal is Dog) { // 이렇게 짰다가 다른 Cat이나 Dog에 다른 객체가 들어간다면 오류를 잡기 힘들다.
+      animal.eat();
+    } else if(animal is Cat) {
+      animal.eat();
+    }
+  }
+}
