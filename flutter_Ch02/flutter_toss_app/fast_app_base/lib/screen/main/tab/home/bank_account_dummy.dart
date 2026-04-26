@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:fast_app_base/screen/main/tab/home/banks_dummy.dart';
 import 'package:fast_app_base/screen/main/tab/home/vo/vo_bank.dart';
 import 'package:fast_app_base/screen/main/tab/home/vo/vo_bank_account.dart';
+import 'package:rive/rive.dart';
 
 final bankAccountShinhan1 = BankAccount(bankShinhan, 3000000, accountTypeName: '신한 주거래 우대통장(저축예금)');
 final bankAccountShinhan2 = BankAccount(bankShinhan, 32000000, accountTypeName: '저축예금');
@@ -56,6 +57,22 @@ class Tiger extends Animal {
 class Cat extends Animal {
   void eat() {}
 }
+
+// 제네릭
+class Result<T, Fail> {
+  final T data;
+  final Fail failData;
+
+  Result(this.data, {required this.failData});
+}
+
+Result<String, RiveFailed> doTheWork() {
+  return Result('success', failData: RiveFailed(Stream.error('error')));
+}
+
+// Result<int> doInt() {
+//   return Result(1);
+// }
 
 main() {
   // final dog1 = Dog();
@@ -112,6 +129,9 @@ main() {
   final list = [];
   final set = {bankAccountShinhan1, bankAccountShinhan2};
   final map = {'shinhan1': bankAccountShinhan1};
+
+
+  // 제네릭
 }
 
 extension ListExtension on List {
