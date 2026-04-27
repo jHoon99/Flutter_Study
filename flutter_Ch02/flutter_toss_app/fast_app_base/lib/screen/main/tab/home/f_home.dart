@@ -10,6 +10,7 @@ import 'package:fast_app_base/screen/main/tab/home/bank_account_dummy.dart';
 import 'package:fast_app_base/screen/main/tab/home/s_number.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_bank_account.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_toss_app_bar.dart';
+import 'package:fast_app_base/stream_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -17,10 +18,27 @@ import '../../../../common/widget/w_big_button.dart';
 import '../../../dialog/d_color_bottom.dart';
 import '../../../dialog/d_confirm.dart';
 
-class HomeFragment extends StatelessWidget {
+class HomeFragment extends StatefulWidget {
   const HomeFragment({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<HomeFragment> createState() => _HomeFragmentState();
+}
+
+class _HomeFragmentState extends State<HomeFragment> {
+  late final stream = countStream(5).asBroadcastStream();
+  int count = 0;
+  @override
+  void initState() {
+    countStream(5).listen((event) {
+      setState(() {
+        count = event;
+      });
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +61,44 @@ class HomeFragment extends StatelessWidget {
               child: Column(
                 spacing: 10,
                 children: [
+                  StreamBuilder(stream: stream, builder: (context, snapshot) {
+                    final count = snapshot.data;
+                    // if (count == null) {
+                    //   return CircularProgressIndicator();
+                    // }
+                    // return Text(count.toString(), style: const TextStyle(fontSize: 30),);
+
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.active:
+                        return Text(count.toString());
+                      case ConnectionState.waiting:
+                        return const CircularProgressIndicator();
+                      case ConnectionState.done:
+                        return const Text('완료');
+                      case ConnectionState.none:
+                      return const CircularProgressIndicator();
+
+                    }
+                  }),
+                  StreamBuilder(stream: stream, builder: (context, snapshot) {
+                    final count = snapshot.data;
+                    // if (count == null) {
+                    //   return CircularProgressIndicator();
+                    // }
+                    // return Text(count.toString(), style: const TextStyle(fontSize: 30),);
+
+                    switch (snapshot.connectionState) {
+                      case ConnectionState.active:
+                        return Text(count.toString());
+                      case ConnectionState.waiting:
+                        return const CircularProgressIndicator();
+                      case ConnectionState.done:
+                        return const Text('완료');
+                      case ConnectionState.none:
+                        return const CircularProgressIndicator();
+
+                    }
+                  }),
                   BigButton(
                     '토스뱅크',
                     onTap: () async {
@@ -74,6 +130,13 @@ class HomeFragment extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Stream<int> countStream(int max) async* {
+    for (int i = 1; i <= max; i++) {
+      await sleepAsync(1.seconds);
+      yield i;
+    }
   }
 
   void showSnackbar(BuildContext context) {
