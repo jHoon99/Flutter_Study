@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:math';
 
-import 'common/dart/extension/num_duration_extension.dart';
-import 'common/util/async/cli_async.dart';
+import '../common/dart/extension/num_duration_extension.dart';
+import '../common/util/async/cli_async.dart';
 
 void main() {
   // Stream 기본 개념
