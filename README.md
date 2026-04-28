@@ -55,3 +55,7 @@ Flutter 독학 끄적
 - [Ch03-3. Dart 함수형 프로그래밍](https://jHoon99.github.io/p/ch03-3-dart-functional/)
 - [Ch03-4. SOLID, DRY, KISS - 설계 원칙 정리](https://jHoon99.github.io/p/ch03-4-solid-dry-kiss/)
 - [Ch03-5. GoF 디자인 패턴 - Singleton, Factory, Builder, Command](https://jHoon99.github.io/p/ch03-5-design-patterns/)
+
+## Ch04. 상태관리
+
+- [Ch04. 상태관리를 왜 해야 하는가 - MVC에서 선언형 UI까지](https://jHoon99.github.io/p/ch04-state-management/)
