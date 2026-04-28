@@ -53,3 +53,4 @@ Flutter 독학 끄적
 - [Ch03-1. Dart 컬렉션과 제네릭](https://jHoon99.github.io/p/ch03-1-dart-collections/)
 - [Ch03-2. Dart 비동기 - Future, Stream](https://jHoon99.github.io/p/ch03-2-dart-async/)
 - [Ch03-3. Dart 함수형 프로그래밍](https://jHoon99.github.io/p/ch03-3-dart-functional/)
+- [Ch03-4. SOLID, DRY, KISS - 설계 원칙 정리](https://jHoon99.github.io/p/ch03-4-solid-dry-kiss/)
