@@ -1,5 +1,6 @@
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/theme/custom_theme_app.dart';
+import 'package:fast_app_base/data/memory/todo_data_notifier.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,8 @@ class App extends StatefulWidget {
 class AppState extends State<App> with Nav, WidgetsBindingObserver {
   @override
   GlobalKey<NavigatorState> get navigatorKey => App.navigatorKey;
+
+  final notifier = TodoDataNotifier();
 
   @override
   void initState() {
