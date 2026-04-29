@@ -14,4 +14,8 @@ class TodoDataHolder extends InheritedWidget {
   bool updateShouldNotify(covariant InheritedWidget oldWidget) {
     return true;
   }
+
+  static TodoDataHolder of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<TodoDataHolder>()!;
+  }
 }
