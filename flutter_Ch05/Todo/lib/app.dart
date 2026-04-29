@@ -34,6 +34,7 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
+    notifier.dispose();
     super.dispose();
   }
 
