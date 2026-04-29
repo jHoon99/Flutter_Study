@@ -1,5 +1,7 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fast_app_base/screen/main/tab/tab_item.dart';
 import 'package:fast_app_base/screen/main/tab/tab_navigator.dart';
+import 'package:fast_app_base/screen/main/write/d_write_todo.dart';
 import 'package:flutter/material.dart';
 
 import '../../common/common.dart';
@@ -13,8 +15,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMixin {
-  TabItem _currentTab = TabItem.home;
-  final tabs = [TabItem.home, TabItem.favorite];
+  TabItem _currentTab = TabItem.todo;
+  final tabs = [TabItem.todo, TabItem.search];
   final List<GlobalKey<NavigatorState>> navigatorKeys = [];
 
   int get _currentIndex => tabs.indexOf(_currentTab);
@@ -48,12 +50,17 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
           ),
         ),
         bottomNavigationBar: _buildBottomNavigationBar(context),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            final result = WriteTodoDialog().show();
+          },
+          child: const Icon(EvaIcons.plus),
+        ),
       ),
     );
   }
 
-  bool get isRootPage =>
-      _currentTab == TabItem.home && _currentTabNavigationKey.currentState?.canPop() == false;
+  bool get isRootPage => _currentTab == TabItem.todo && _currentTabNavigationKey.currentState?.canPop() == false;
 
   IndexedStack get pages => IndexedStack(
       index: _currentIndex,
@@ -74,8 +81,8 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
         return;
       }
 
-      if (_currentTab != TabItem.home) {
-        _changeTab(tabs.indexOf(TabItem.home));
+      if (_currentTab != TabItem.todo) {
+        _changeTab(tabs.indexOf(TabItem.todo));
       }
     }
   }
@@ -123,8 +130,7 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
     });
   }
 
-  BottomNavigationBarItem bottomItem(
-      bool activate, IconData iconData, IconData inActivateIconData, String label) {
+  BottomNavigationBarItem bottomItem(bool activate, IconData iconData, IconData inActivateIconData, String label) {
     return BottomNavigationBarItem(
         icon: Icon(
           key: ValueKey(label),
