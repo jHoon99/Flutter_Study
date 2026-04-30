@@ -1,4 +1,8 @@
 import 'package:fast_app_base/data/memory/todo_data_notifier.dart';
+import 'package:fast_app_base/data/memory/todo_status.dart';
+import 'package:fast_app_base/data/memory/vo_todo.dart';
+import 'package:fast_app_base/screen/dialog/d_confirm.dart';
+import 'package:fast_app_base/screen/main/write/d_write_todo.dart';
 import 'package:flutter/cupertino.dart';
 
 class TodoDataHolder extends InheritedWidget {
@@ -17,5 +21,34 @@ class TodoDataHolder extends InheritedWidget {
 
   static TodoDataHolder of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType<TodoDataHolder>()!;
+  }
+
+  void changeTodoStatus(todo) async {
+    switch (todo.status) {
+      case TodoStatus.inComplete:
+        todo.status = TodoStatus.onGoing;
+      case TodoStatus.onGoing:
+        todo.status = TodoStatus.complete;
+      case TodoStatus.complete:
+        final result = await ConfirmDialog('정말로 처음 상태로 변경하시겠어요?').show();
+        result?.runIfSuccess((data) {
+          todo.status = TodoStatus.inComplete;
+        });
+    }
+    notifier.notify();
+  }
+
+  void editTodo(Todo todo) async {
+    final result = await WriteTodoDialog(todoForEdit: todo).show();
+    if(result != null) {
+      todo.title = result.text;
+      todo.dueDate = result.dateTime;
+      notifier.notify();
+    }
+  }
+
+  void removeTodo(Todo todo) {
+    notifier.value.remove(todo);
+    notifier.notify();
   }
 }

@@ -7,9 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:nav/dialog/dialog.dart';
 
 import '../../../common/common.dart';
+import '../../../data/memory/vo_todo.dart';
 
 class WriteTodoDialog extends DialogWidget<WriteTodoResult> {
-  WriteTodoDialog({super.key});
+  final Todo? todoForEdit;
+
+  WriteTodoDialog({this.todoForEdit, super.key});
 
   @override
   DialogState<WriteTodoDialog> createState() => _WriteTodoDialogState();
@@ -23,6 +26,15 @@ class _WriteTodoDialogState extends DialogState<WriteTodoDialog> {
   @override
   void afterFirstLayout(BuildContext context) {
     node.requestFocus();
+  }
+
+  @override
+  void initState() {
+    if (widget.todoForEdit != null) {
+     _selectedData = widget.todoForEdit!.dueDate;
+     textController.text = widget.todoForEdit!.title;
+    }
+    super.initState();
   }
 
   @override
@@ -57,7 +69,7 @@ class _WriteTodoDialogState extends DialogState<WriteTodoDialog> {
                   autofocus: true,
                 )),
                 RoundButton(
-                  text: '추가',
+                  text: isEditMode ? '완료' : '추가',
                   onTap: () {
                     widget.hide(WriteTodoResult(dateTime: _selectedData, text: textController.text));
                   },
@@ -69,6 +81,8 @@ class _WriteTodoDialogState extends DialogState<WriteTodoDialog> {
       ),
     );
   }
+
+  bool get isEditMode => widget.todoForEdit != null;
 
   void _selectDate() async {
     final date = await showDatePicker(

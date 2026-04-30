@@ -13,27 +13,59 @@ class TodoItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RoundedContainer(
-        color: context.appColors.itemBackground,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Text(todo.dueDate.toString()),
-            Row(
-              children: [
-                TodoStatusWidget(todo),
-                Text(
-                  todo.title,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+    return Dismissible(
+      background: const RoundedContainer(
+          color: Colors.red,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(
+                EvaIcons.trash2Outline,
+                color: Colors.white,
+              )
+            ],
+          )),
+      secondaryBackground: const RoundedContainer(
+          color: Colors.red,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Icon(
+                EvaIcons.trash2Outline,
+                color: Colors.white,
+              )
+            ],
+          )),
+      onDismissed: (direction) {
+        context.todoHolder.removeTodo(todo);
+      },
+      key: ValueKey(todo.id),
+      child: RoundedContainer(
+          color: context.appColors.itemBackground,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Text(todo.dueDate.toString()),
+              Row(
+                children: [
+                  TodoStatusWidget(todo),
+                  Text(
+                    todo.title,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                const Spacer(),
-                IconButton(onPressed: () async {}, icon: const Icon(EvaIcons.editOutline))
-              ],
-            ),
-          ],
-        ));
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () async {
+                        context.todoHolder.editTodo(todo);
+                      },
+                      icon: const Icon(EvaIcons.editOutline))
+                ],
+              ),
+            ],
+          )),
+    );
   }
 }
