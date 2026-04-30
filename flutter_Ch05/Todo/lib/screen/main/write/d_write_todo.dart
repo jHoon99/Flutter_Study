@@ -24,11 +24,6 @@ class _WriteTodoDialogState extends DialogState<WriteTodoDialog> {
   final node = FocusNode();
 
   @override
-  void afterFirstLayout(BuildContext context) {
-    node.requestFocus();
-  }
-
-  @override
   void initState() {
     if (widget.todoForEdit != null) {
      _selectedData = widget.todoForEdit!.dueDate;

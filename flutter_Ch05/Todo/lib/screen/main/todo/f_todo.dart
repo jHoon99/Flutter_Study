@@ -25,7 +25,7 @@ class _TodoFragmentState extends State<TodoFragment> {
               )
             ],
           ),
-          const TodoList()
+          TodoList()
         ],
       ),
     );

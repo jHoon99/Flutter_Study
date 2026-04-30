@@ -1,4 +1,5 @@
 import 'package:fast_app_base/common/common.dart';
+import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -14,7 +15,7 @@ class TodoStatusWidget extends StatefulWidget {
   State<TodoStatusWidget> createState() => _TodoStatusWidgetState();
 }
 
-class _TodoStatusWidgetState extends State<TodoStatusWidget> {
+class _TodoStatusWidgetState extends State<TodoStatusWidget> with TodoDataProvider {
   static File? _cachedFile;
 
   RiveWidgetController? _controller;
@@ -66,7 +67,7 @@ class _TodoStatusWidgetState extends State<TodoStatusWidget> {
   Widget build(BuildContext context) {
     return Tap(
       onTap: () {
-        context.todoHolder.changeTodoStatus(widget.todo);
+        todoData.changeTodoStatus(widget.todo);
       },
       child: SizedBox(
           width: 50,

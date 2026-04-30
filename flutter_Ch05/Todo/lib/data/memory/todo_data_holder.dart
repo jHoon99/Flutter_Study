@@ -1,9 +1,9 @@
-import 'package:fast_app_base/data/memory/todo_data_notifier.dart';
 import 'package:fast_app_base/data/memory/todo_status.dart';
 import 'package:fast_app_base/data/memory/vo_todo.dart';
 import 'package:fast_app_base/screen/dialog/d_confirm.dart';
 import 'package:fast_app_base/screen/main/write/d_write_todo.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
@@ -52,4 +52,8 @@ class TodoDataHolder extends GetxController {
     todoList.remove(todo);
     todoList.refresh();
   }
+}
+
+mixin class TodoDataProvider {
+  late final TodoDataHolder todoData = Get.find();
 }

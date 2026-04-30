@@ -1,15 +1,16 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:fast_app_base/common/widget/w_rounded_container.dart';
+import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:fast_app_base/screen/main/todo/w_todo_status.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/dart/extension/context_extension.dart';
 import '../../../data/memory/vo_todo.dart';
 
-class TodoItem extends StatelessWidget {
+class TodoItem extends StatelessWidget with TodoDataProvider{
   final Todo todo;
 
-  const TodoItem(this.todo, {super.key});
+  TodoItem(this.todo, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +38,7 @@ class TodoItem extends StatelessWidget {
             ],
           )),
       onDismissed: (direction) {
-        context.todoHolder.removeTodo(todo);
+        todoData.removeTodo(todo);
       },
       key: ValueKey(todo.id),
       child: RoundedContainer(
@@ -59,7 +60,7 @@ class TodoItem extends StatelessWidget {
                   const Spacer(),
                   IconButton(
                       onPressed: () async {
-                        context.todoHolder.editTodo(todo);
+                        todoData.editTodo(todo);
                       },
                       icon: const Icon(EvaIcons.editOutline))
                 ],
