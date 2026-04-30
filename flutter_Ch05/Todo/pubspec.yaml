@@ -74,16 +74,17 @@ dependencies:
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
   rive: ^0.14.6
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
-  retrofit_generator: ^5.0.0
   build_runner: ^2.4.13
   json_serializable: ^6.6.1
-  isar_generator: 3.1.0
+  #isar_generator: 3.1.0  # isar와 retrofit_generator 버전 충돌로 임시 비활성
+  #retrofit_generator: ^5.0.0  # 위와 동일
   mock_web_server: ^5.0.0-nullsafety.1
   flutter_oss_licenses: ^2.0.1
 
