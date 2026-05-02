@@ -1,6 +1,6 @@
 import 'package:fast_app_base/data/memory/vo_todo.dart';
 
-abstract class TodoEvent {}
+sealed class TodoEvent {}
 
 class TodoAddEvent extends TodoEvent {}
 
