@@ -4,6 +4,7 @@ import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 
@@ -40,19 +41,20 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return CustomThemeApp(
-      child: Builder(builder: (context) {
-          child: return MaterialApp(
-              navigatorKey: App.navigatorKey,
-              localizationsDelegates: context.localizationDelegates,
-              supportedLocales: context.supportedLocales,
-              locale: context.locale,
-              title: 'Image Finder',
-              theme: context.themeType.themeData,
-              home: const MainScreen(),
-            );
-      })
-    );
+    return CustomThemeApp(child: Builder(builder: (context) {
+      child:
+      return ProviderScope(
+        child: MaterialApp(
+          navigatorKey: App.navigatorKey,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: 'Image Finder',
+          theme: context.themeType.themeData,
+          home: const MainScreen(),
+        ),
+      );
+    }));
   }
 
   @override
