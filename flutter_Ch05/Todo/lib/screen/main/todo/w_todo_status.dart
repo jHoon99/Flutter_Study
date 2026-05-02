@@ -2,21 +2,22 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:fast_app_base/data/memory/todo_event.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:rive/rive.dart';
 
 import '../../../data/memory/todo_status.dart';
 import '../../../data/memory/vo_todo.dart';
 
-class TodoStatusWidget extends StatefulWidget {
+class TodoStatusWidget extends ConsumerStatefulWidget {
   final Todo todo;
 
   const TodoStatusWidget(this.todo, {super.key});
 
   @override
-  State<TodoStatusWidget> createState() => _TodoStatusWidgetState();
+  ConsumerState<TodoStatusWidget> createState() => _TodoStatusWidgetState();
 }
 
-class _TodoStatusWidgetState extends State<TodoStatusWidget> {
+class _TodoStatusWidgetState extends ConsumerState<TodoStatusWidget> {
   static File? _cachedFile;
 
   RiveWidgetController? _controller;
@@ -68,7 +69,7 @@ class _TodoStatusWidgetState extends State<TodoStatusWidget> {
   Widget build(BuildContext context) {
     return Tap(
       onTap: () {
-        context.readTodoBloc.add(TodoStatusUpdateEvent(widget.todo));
+        ref.readTodoHolder.changeTodoStatus(widget.todo);
       },
       child: SizedBox(
           width: 50,

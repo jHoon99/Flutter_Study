@@ -42,9 +42,7 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return CustomThemeApp(
       child: Builder(builder: (context) {
-        return BlocProvider(
-          create: (BuildContext context) => TodoBloc(),
-          child: MaterialApp(
+          child: return MaterialApp(
               navigatorKey: App.navigatorKey,
               localizationsDelegates: context.localizationDelegates,
               supportedLocales: context.supportedLocales,
@@ -52,8 +50,7 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
               title: 'Image Finder',
               theme: context.themeType.themeData,
               home: const MainScreen(),
-            ),
-        );
+            );
       })
     );
   }

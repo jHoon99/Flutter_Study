@@ -4,17 +4,18 @@ import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:fast_app_base/data/memory/todo_event.dart';
 import 'package:fast_app_base/screen/main/todo/w_todo_status.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../common/dart/extension/context_extension.dart';
 import '../../../data/memory/vo_todo.dart';
 
-class TodoItem extends StatelessWidget {
+class TodoItem extends ConsumerWidget {
   final Todo todo;
 
   const TodoItem(this.todo, {super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Dismissible(
       background: const RoundedContainer(
           color: Colors.red,
@@ -39,7 +40,7 @@ class TodoItem extends StatelessWidget {
             ],
           )),
       onDismissed: (direction) {
-        context.readTodoBloc.add(TodoRemoveEvent(todo));
+        ref.readTodoHolder.addTodo();
       },
       key: ValueKey(todo.id),
       child: RoundedContainer(
@@ -61,7 +62,7 @@ class TodoItem extends StatelessWidget {
                   const Spacer(),
                   IconButton(
                       onPressed: () async {
-                        context.readTodoBloc.add(TodoContentUpdateEvent(todo));
+                        ref.readTodoHolder.changeTodoStatus(todo);
                       },
                       icon: const Icon(EvaIcons.editOutline))
                 ],
