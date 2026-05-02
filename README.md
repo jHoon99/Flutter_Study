@@ -66,5 +66,7 @@ Flutter 독학 끄적
 - [Ch05-2. Todo 앱 GetX로 전환 - .obs와 Obx의 마법](https://jHoon99.github.io/p/ch05-2-getx-state-management/)
 - [Ch05-3. Todo 앱 BLoC + freezed 전환 - 이벤트 기반 상태관리](https://jHoon99.github.io/p/ch05-3-bloc-freezed/)
 - [Ch05-4. Todo 앱 Riverpod 전환 - 이게 진짜 사기다](https://jHoon99.github.io/p/ch05-4-riverpod/)
+- [Ch05-5. Flutter Hooks + Riverpod - SwiftUI @State가 여기 있었네](https://jHoon99.github.io/p/ch05-5-flutter-hooks/)
+- [Ch05-6. 아키텍처와 상태관리 총정리 - 정답은 없고 차이만 있다](https://jHoon99.github.io/p/ch05-6-architecture-wrap-up/)
 
 - [Todo](flutter_Ch05/Todo) - Todo 앱 (ValueNotifier → GetX → BLoC → Riverpod 전환)
