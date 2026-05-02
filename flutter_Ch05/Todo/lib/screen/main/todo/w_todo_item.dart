@@ -40,7 +40,7 @@ class TodoItem extends ConsumerWidget {
             ],
           )),
       onDismissed: (direction) {
-        ref.readTodoHolder.addTodo();
+        ref.readTodoHolder.removeTodo(todo);
       },
       key: ValueKey(todo.id),
       child: RoundedContainer(
