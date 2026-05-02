@@ -59,3 +59,11 @@ Flutter 독학 끄적
 ## Ch04. 상태관리
 
 - [Ch04. 상태관리를 왜 해야 하는가 - MVC에서 선언형 UI까지](https://jHoon99.github.io/p/ch04-state-management/)
+
+## Ch05. 상태관리 실전 — Todo 앱
+
+- [Ch05-1. Todo 앱으로 상태관리 입문 - ValueNotifier + InheritedWidget](https://jHoon99.github.io/p/ch05-1-valuenotifier-inheritedwidget/)
+- [Ch05-2. Todo 앱 GetX로 전환 - .obs와 Obx의 마법](https://jHoon99.github.io/p/ch05-2-getx-state-management/)
+- [Ch05-3. Todo 앱 BLoC + freezed 전환 - 이벤트 기반 상태관리](https://jHoon99.github.io/p/ch05-3-bloc-freezed/)
+
+- [Todo](flutter_Ch05/Todo) - Todo 앱 (ValueNotifier → GetX → BLoC 전환)
