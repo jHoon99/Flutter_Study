@@ -15,7 +15,7 @@ class TodoStatusWidget extends StatefulWidget {
   State<TodoStatusWidget> createState() => _TodoStatusWidgetState();
 }
 
-class _TodoStatusWidgetState extends State<TodoStatusWidget> with TodoDataProvider {
+class _TodoStatusWidgetState extends State<TodoStatusWidget> {
   static File? _cachedFile;
 
   RiveWidgetController? _controller;
@@ -67,7 +67,7 @@ class _TodoStatusWidgetState extends State<TodoStatusWidget> with TodoDataProvid
   Widget build(BuildContext context) {
     return Tap(
       onTap: () {
-        todoData.changeTodoStatus(widget.todo);
+        context.readTodoCubit.changeTodoStatus(widget.todo);
       },
       child: SizedBox(
           width: 50,

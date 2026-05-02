@@ -3,6 +3,7 @@ import 'package:fast_app_base/common/theme/custom_theme_app.dart';
 import 'package:fast_app_base/data/memory/todo_data_holder.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/src/extension_instance.dart';
 
@@ -28,7 +29,6 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    Get.put(TodoDataHolder());
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -41,15 +41,20 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     return CustomThemeApp(
-      child: Builder(builder: (context) => MaterialApp(
-            navigatorKey: App.navigatorKey,
-            localizationsDelegates: context.localizationDelegates,
-            supportedLocales: context.supportedLocales,
-            locale: context.locale,
-            title: 'Image Finder',
-            theme: context.themeType.themeData,
-            home: const MainScreen(),
-          ))
+      child: Builder(builder: (context) {
+        return BlocProvider(
+          create: (BuildContext context) => TodoCubit(),
+          child: MaterialApp(
+              navigatorKey: App.navigatorKey,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
+              title: 'Image Finder',
+              theme: context.themeType.themeData,
+              home: const MainScreen(),
+            ),
+        );
+      })
     );
   }
 
