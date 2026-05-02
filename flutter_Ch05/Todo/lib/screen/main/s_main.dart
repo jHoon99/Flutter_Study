@@ -12,6 +12,15 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../common/common.dart';
 import 'w_menu_drawer.dart';
 
+class MainScreenWrapper extends StatelessWidget {
+  const MainScreenWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const ProviderScope(child: MainScreen());
+  }
+}
+
 class MainScreen extends ConsumerStatefulWidget {
   const MainScreen({super.key});
 
