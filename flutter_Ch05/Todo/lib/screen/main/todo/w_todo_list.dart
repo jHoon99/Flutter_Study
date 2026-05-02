@@ -11,7 +11,7 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TodoCubit, TodoBlocState>(
+    return BlocBuilder<TodoBloc, TodoBlocState>(
       builder: (context, state) {
         return state.todoList.isEmpty
             ? const Expanded(

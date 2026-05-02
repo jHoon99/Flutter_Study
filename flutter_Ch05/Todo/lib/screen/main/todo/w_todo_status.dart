@@ -1,5 +1,6 @@
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/data/memory/todo_data_holder.dart';
+import 'package:fast_app_base/data/memory/todo_event.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
@@ -67,7 +68,7 @@ class _TodoStatusWidgetState extends State<TodoStatusWidget> {
   Widget build(BuildContext context) {
     return Tap(
       onTap: () {
-        context.readTodoCubit.changeTodoStatus(widget.todo);
+        context.readTodoBloc.add(TodoStatusUpdateEvent(widget.todo));
       },
       child: SizedBox(
           width: 50,

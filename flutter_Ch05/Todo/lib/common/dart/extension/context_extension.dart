@@ -49,6 +49,6 @@ extension ContextExtension on BuildContext {
 
   // TodoDataHolder get todoHolder => TodoDataHolder.of(this);
 
-  TodoCubit get readTodoCubit => read();
-  TodoCubit get watchTodoCubit => watch();
+  TodoBloc get readTodoBloc => read();
+  TodoBloc get watchTodoBloc => watch();
 }
