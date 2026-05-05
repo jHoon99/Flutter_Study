@@ -25,7 +25,7 @@ enum CustomTheme {
       case CustomTheme.dark:
         return darkTheme;
       case CustomTheme.light:
-        return lightTheme;
+        return darkTheme;
     }
   }
 }
