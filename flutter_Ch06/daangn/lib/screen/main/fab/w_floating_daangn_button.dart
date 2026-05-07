@@ -67,8 +67,7 @@ class FloatingDaangnButton extends HookConsumerWidget {
       },
       child: AnimatedContainer(
         duration: duration,
-        height: 60,
-        padding: const EdgeInsets.symmetric(horizontal: 18),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
           color: isExpanded ? color : const Color(0xffff791f),
           borderRadius: BorderRadius.circular(30),
@@ -81,10 +80,13 @@ class FloatingDaangnButton extends HookConsumerWidget {
               duration: duration,
               child: const Icon(Icons.add),
             ),
-            AnimatedWidthCollapse(
-              visible: !isSmall && !isExpanded,
-              duration: duration,
-              child: const Text('글쓰기'),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 2),
+              child: AnimatedWidthCollapse(
+                visible: !isSmall && !isExpanded,
+                duration: duration,
+                child: const Text('글쓰기', style: TextStyle(fontSize: 16),),
+              ),
             ),
           ],
         ),
@@ -93,26 +95,29 @@ class FloatingDaangnButton extends HookConsumerWidget {
   }
 
   Widget _menuButton(bool isExpanded, Color color) {
-    return AnimatedOpacity(
-      opacity: isExpanded ? 1 : 0,
-      duration: duration,
-      child: Container(
-        width: 160,
-        padding: const EdgeInsets.all(15),
-        margin: const EdgeInsets.only(right: 16, bottom: 10),
-        decoration: BoxDecoration(
-          color: color,
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          spacing: 10,
-          children: [
-            _floatingItem('알바', '$basePath/fab/fab_01.png'),
-            _floatingItem('과외/클래스', '$basePath/fab/fab_02.png'),
-            _floatingItem('농수산물', '$basePath/fab/fab_03.png'),
-            _floatingItem('부동산', '$basePath/fab/fab_04.png'),
-            _floatingItem('중고차', '$basePath/fab/fab_05.png'),
-          ],
+    return IgnorePointer(
+      ignoring: !isExpanded,
+      child: AnimatedOpacity(
+        opacity: isExpanded ? 1 : 0,
+        duration: duration,
+        child: Container(
+          width: 160,
+          padding: const EdgeInsets.all(15),
+          margin: const EdgeInsets.only(right: 16, bottom: 10),
+          decoration: BoxDecoration(
+            color: color,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            spacing: 10,
+            children: [
+              _floatingItem('알바', '$basePath/fab/fab_01.png'),
+              _floatingItem('과외/클래스', '$basePath/fab/fab_02.png'),
+              _floatingItem('농수산물', '$basePath/fab/fab_03.png'),
+              _floatingItem('부동산', '$basePath/fab/fab_04.png'),
+              _floatingItem('중고차', '$basePath/fab/fab_05.png'),
+            ],
+          ),
         ),
       ),
     );
