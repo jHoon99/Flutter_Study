@@ -44,8 +44,8 @@ dependencies:
 
   #data
   shared_preferences: ^2.3.0
-  isar: 3.1.0
-  isar_flutter_libs: 3.1.0
+  #isar: 3.1.0  # AGP 8.1+ 비호환으로 비활성
+  #isar_flutter_libs: 3.1.0
 
   #architecture
   event_bus: ^2.0.0
@@ -65,7 +65,7 @@ dependencies:
   cached_network_image: ^3.2.3
 
   #ui - util
-  keyboard_utils_fork: ^0.0.4
+  #keyboard_utils_fork: ^1.0.1  # Android 빌드 비호환으로 비활성
 
   #network
   dio: ^5.0.0
@@ -73,6 +73,10 @@ dependencies:
   freezed: ^2.3.4
   freezed_annotation: ^2.2.0
   json_annotation: ^4.8.0
+  riverpod: ^2.6.1
+  flutter_riverpod: ^2.6.1
+  hooks_riverpod: ^2.6.1
+  flutter_hooks: ^0.20.5
 
 dev_dependencies:
   flutter_test:
