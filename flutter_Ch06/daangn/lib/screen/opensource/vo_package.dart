@@ -8,7 +8,7 @@ part 'vo_package.freezed.dart';
 part 'vo_package.g.dart';
 
 @freezed
-class Package with _$Package{
+abstract class Package with _$Package{
 
    factory Package({
     required String name,
