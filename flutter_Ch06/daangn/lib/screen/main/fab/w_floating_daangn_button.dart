@@ -20,6 +20,7 @@ class FloatingDaangnButton extends HookConsumerWidget {
     return Stack(
       children: [
         IgnorePointer(
+          ignoring: !isExpanded,
           child: AnimatedContainer(
             duration: duration,
             color: isExpanded ? Colors.black.withValues(alpha: 0.4) : Colors.transparent,
@@ -59,8 +60,8 @@ class FloatingDaangnButton extends HookConsumerWidget {
   ) {
     return Tap(
       onTap: () {
-        // ref.read(floatingButtonIsExpandedProvider.notifier).state = !isExpanded;
-        ref.read(floatingButtonIsSmallProvider.notifier).state = !isSmall;
+        ref.read(floatingButtonIsExpandedProvider.notifier).state = !isExpanded;
+        // ref.read(floatingButtonIsSmallProvider.notifier).state = !isSmall;
       },
       child: AnimatedContainer(
         duration: duration,
@@ -79,7 +80,7 @@ class FloatingDaangnButton extends HookConsumerWidget {
               child: const Icon(Icons.add),
             ),
             AnimatedWidthCollapse(
-              visible: !isSmall,
+              visible: !isSmall && !isExpanded,
               duration: duration,
               child: const Text('글쓰기'),
             ),
