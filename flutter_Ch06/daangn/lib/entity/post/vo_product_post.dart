@@ -14,5 +14,6 @@ abstract class ProductPost with _$ProductPost {
     final String address,
     final int chatCount,
     final int likeCount,
+    final DateTime createdTime,
   ) = _ProductPost;
 }
