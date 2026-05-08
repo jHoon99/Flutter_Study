@@ -1,5 +1,6 @@
 import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/theme/custom_theme_app.dart';
+import 'package:fast_app_base/data/navigation/router/router.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,7 +20,7 @@ class App extends StatefulWidget {
   State<App> createState() => AppState();
 }
 
-class AppState extends State<App> with Nav, WidgetsBindingObserver {
+class AppState extends State<App> with WidgetsBindingObserver {
   @override
   GlobalKey<NavigatorState> get navigatorKey => App.navigatorKey;
 
@@ -40,14 +41,13 @@ class AppState extends State<App> with Nav, WidgetsBindingObserver {
     return ProviderScope(
       child: CustomThemeApp(
         child: Builder(builder: (context) {
-          return MaterialApp(
-            navigatorKey: App.navigatorKey,
+          return MaterialApp.router(
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,
             title: 'Image Finder',
             theme: context.themeType.themeData,
-            home: const MainScreen(),
+            routerConfig: router,
           );
         }),
       ),
