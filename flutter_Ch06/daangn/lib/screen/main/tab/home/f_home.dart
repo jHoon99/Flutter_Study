@@ -1,9 +1,11 @@
 import 'dart:math';
 
+import 'package:fast_app_base/data/navigation/app_route.dart';
 import 'package:fast_app_base/screen/main/fab/w_floating_daangn_button.riverpod.dart';
 import 'package:fast_app_base/screen/main/tab/home/w_product_post_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../common/hook/use_scroll.dart';
@@ -35,6 +37,14 @@ class HomeFragment extends HookConsumerWidget {
                 )
                 .toList(),
           ),
+          actions: [
+            IconButton(
+              onPressed: () {
+                context.pushNotification();
+              },
+              icon: const Icon(Icons.notifications_none_rounded),
+            )
+          ],
         ),
         Expanded(
           child: ListView.separated(
