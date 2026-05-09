@@ -2,10 +2,17 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'f_notification_list.dart';
 
-final editMode = StateProvider<bool>((ref) => false);
+part 's_notification.g.dart';
+
+@riverpod
+class EditMode extends _$EditMode {
+  @override
+  bool build() => false;
+}
 
 class NotificationScreen extends HookConsumerWidget {
   const NotificationScreen({super.key});
@@ -13,7 +20,7 @@ class NotificationScreen extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // final editMode = useState(false); notificationItem에서 사용해야해서 riverpod 전환
-    final isEditMode = ref.watch(editMode);
+    final isEditMode = ref.watch(editModeProvider);
 
     final tabController = useTabController(initialLength: 2);
 
@@ -24,7 +31,7 @@ class NotificationScreen extends HookConsumerWidget {
           actions: [
             Tap(
               onTap: () {
-                ref.read(editMode.notifier).state = !isEditMode;
+                ref.read(editModeProvider.notifier).state = !isEditMode;
                 // final isEditMode = editMode.value;
                 // editMode.value = !isEditMode;
               },

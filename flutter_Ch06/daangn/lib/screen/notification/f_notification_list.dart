@@ -1,3 +1,4 @@
+import 'package:fast_app_base/screen/notification/provider/notification_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -9,9 +10,14 @@ class NotificationList extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ListView(
-      children:
-        notificationdummyList.map((e) => NotificationItem(e)).toList()
+    final notification = ref.watch(notificationListProvider);
+
+    return notification.when(
+      data: (list) => ListView(
+        children: list.map((e) => NotificationItem(e)).toList(),
+      ),
+      error: (e, _) => const Text('에러'),
+      loading: () => const CircularProgressIndicator(),
     );
   }
 }

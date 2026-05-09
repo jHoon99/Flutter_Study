@@ -3,13 +3,20 @@ import 'package:fast_app_base/screen/main/tab/tab_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../common/common.dart';
 import '../../common/dart/extension/num_duration_extension.dart';
 import 'fab/w_floating_daangn_button.dart';
 import 'w_menu_drawer.dart';
 
-final currentTabProvider = StateProvider((ref) => TabItem.home);
+part 's_main.g.dart';
+
+@riverpod
+class CurrentTab extends _$CurrentTab {
+  @override
+  TabItem build() => TabItem.home;
+}
 
 class MainScreen extends ConsumerStatefulWidget {
   final StatefulNavigationShell navigationShell;

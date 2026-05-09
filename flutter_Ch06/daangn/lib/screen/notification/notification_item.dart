@@ -12,7 +12,7 @@ class NotificationItem extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isEditMode = ref.watch(editMode);
+    final isEditMode = ref.watch(editModeProvider);
 
     return Tap(
       onTap: () {},

@@ -7,6 +7,6 @@ import 'package:fast_app_base/entity/notification/vo_notification.dart';
 class DaangnApi {
   static Future<SimpleResult<List<DaangnNotification>, ApiError>> getNotification() async {
     await sleepAsync(300.ms);
-    return SimpleResult().successData(notificationdummyList);
+    return SimpleResult.success(notificationdummyList);
   }
 }

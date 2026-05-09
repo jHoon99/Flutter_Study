@@ -1,4 +1,15 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final floatingButtonIsExpandedProvider = StateProvider((ref) => false);
-final floatingButtonIsSmallProvider = StateProvider((ref) => false);
+part 'w_floating_daangn_button.riverpod.g.dart';
+
+@riverpod
+class FloatingButtonIsExpanded extends _$FloatingButtonIsExpanded {
+  @override
+  bool build() => false;
+}
+
+@riverpod
+class FloatingButtonIsSmall extends _$FloatingButtonIsSmall {
+  @override
+  bool build() => false;
+}
