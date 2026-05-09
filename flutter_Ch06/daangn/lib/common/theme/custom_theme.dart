@@ -42,6 +42,8 @@ ThemeData lightTheme = ThemeData(
 const darkColorSeed = Color(0xbcd5ff7e);
 ThemeData darkTheme = ThemeData(
     useMaterial3: true,
+    splashFactory: NoSplash.splashFactory, // 물결 효과 제거
+    highlightColor: Colors.transparent, // 하이라이트 효과 제거
     visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     scaffoldBackgroundColor: AppColors.veryDarkGrey,
