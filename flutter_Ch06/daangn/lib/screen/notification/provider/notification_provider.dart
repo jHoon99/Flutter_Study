@@ -25,4 +25,9 @@ class NotificationList extends _$NotificationList {
     final result = await DaangnApi.getNotification();
     return result.successData;
   }
+
+  void remove(DaangnNotification item) {
+    final current = state.value ?? [];
+    state = AsyncData(current.where((e) => e != item).toList());
+  }
 }

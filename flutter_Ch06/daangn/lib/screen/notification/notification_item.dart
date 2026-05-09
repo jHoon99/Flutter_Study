@@ -1,4 +1,5 @@
 import 'package:fast_app_base/entity/notification/vo_notification.dart';
+import 'package:fast_app_base/screen/notification/provider/notification_provider.dart';
 import 'package:fast_app_base/screen/notification/s_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -30,7 +31,9 @@ class NotificationItem extends HookConsumerWidget {
             _content,
             if (isEditMode)
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  ref.read(notificationListProvider.notifier).remove(notification);
+                },
                 icon: Icon(Icons.delete),
               )
           ],
