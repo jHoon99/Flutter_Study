@@ -5,12 +5,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'f_notification_list.dart';
 
+final editMode = StateProvider<bool>((ref) => false);
+
 class NotificationScreen extends HookConsumerWidget {
   const NotificationScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final editMode = useState(false);
+    // final editMode = useState(false); notificationItem에서 사용해야해서 riverpod 전환
+    final isEditMode = ref.watch(editMode);
+
     final tabController = useTabController(initialLength: 2);
 
     return Column(
@@ -20,12 +24,13 @@ class NotificationScreen extends HookConsumerWidget {
           actions: [
             Tap(
               onTap: () {
-                final isEditMode = editMode.value;
-                editMode.value = !isEditMode;
+                ref.read(editMode.notifier).state = !isEditMode;
+                // final isEditMode = editMode.value;
+                // editMode.value = !isEditMode;
               },
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text(editMode.value ? '완료' : '편집'),
+                child: Text(isEditMode ? '완료' : '편집'),
               ),
             ),
           ],
@@ -38,7 +43,7 @@ class NotificationScreen extends HookConsumerWidget {
           ],
           labelColor: Colors.white,
           unselectedLabelColor: Colors.grey,
-          unselectedLabelStyle: TextStyle(fontSize: 16),
+          unselectedLabelStyle: const TextStyle(fontSize: 16),
           labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           labelPadding: const EdgeInsets.symmetric(vertical: 20),
           indicatorColor: Colors.white,
