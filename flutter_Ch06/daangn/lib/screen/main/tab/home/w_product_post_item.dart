@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fast_app_base/common/common.dart';
+import 'package:fast_app_base/data/navigation/app_route.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -13,11 +14,16 @@ class ProductPostItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [_image, const SizedBox(width: 8), _body(context)],
+    return Tap(
+      onTap: () {
+        context.pushPostDetail(post.id, post);
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [_image, const SizedBox(width: 8), _body(context)],
+        ),
       ),
     );
   }

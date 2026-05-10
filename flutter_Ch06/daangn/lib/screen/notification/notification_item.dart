@@ -48,7 +48,7 @@ class NotificationItem extends HookConsumerWidget {
         spacing: 4,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(notification.title),
+          Text(notification.title, style: const TextStyle(fontSize: 15)),
           Text(notification.description, style: const TextStyle(fontSize: 12)),
           const SizedBox(height: 4),
           Text(notification.time.toString(), style: const TextStyle(fontSize: 10)),

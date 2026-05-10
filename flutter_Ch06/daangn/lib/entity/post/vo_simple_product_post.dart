@@ -8,6 +8,7 @@ part 'vo_simple_product_post.freezed.dart';
 @freezed
 abstract class SimpleProductPost with _$SimpleProductPost {
   const factory SimpleProductPost(
+    final int id,
     final User user,
     final Product product,
     final String title,

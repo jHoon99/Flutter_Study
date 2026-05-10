@@ -24,25 +24,21 @@ class NotificationScreen extends HookConsumerWidget {
 
     final tabController = useTabController(initialLength: 2);
 
-    return Column(
-      children: [
-        AppBar(
-          title: const Text('알림'),
-          actions: [
-            Tap(
-              onTap: () {
-                ref.read(editModeProvider.notifier).state = !isEditMode;
-                // final isEditMode = editMode.value;
-                // editMode.value = !isEditMode;
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text(isEditMode ? '완료' : '편집'),
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('알림'),
+        actions: [
+          Tap(
+            onTap: () {
+              ref.read(editModeProvider.notifier).state = !isEditMode;
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Text(isEditMode ? '완료' : '편집'),
             ),
-          ],
-        ),
-        TabBar(
+          ),
+        ],
+        bottom: TabBar(
           controller: tabController,
           tabs: const [
             Tab(text: '활동 알림'),
@@ -52,20 +48,17 @@ class NotificationScreen extends HookConsumerWidget {
           unselectedLabelColor: Colors.grey,
           unselectedLabelStyle: const TextStyle(fontSize: 16),
           labelStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          labelPadding: const EdgeInsets.symmetric(vertical: 20),
           indicatorColor: Colors.white,
-          overlayColor: WidgetStateProperty.all(Colors.transparent) // 탭바는 따로 또 제거해야함
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
         ),
-        Expanded(
-          child: TabBarView(
-            controller: tabController,
-            children: [
-              NotificationList(),
-              Container(color: Colors.red),
-            ],
-          ),
-        )
-      ],
+      ),
+      body: TabBarView(
+        controller: tabController,
+        children: [
+          NotificationList(),
+          Container(color: Colors.red),
+        ],
+      ),
     );
   }
 }
