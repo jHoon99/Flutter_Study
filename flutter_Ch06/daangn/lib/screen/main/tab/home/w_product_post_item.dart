@@ -4,10 +4,10 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:flutter/material.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
-import '../../../../entity/post/vo_product_post.dart';
+import '../../../../entity/post/vo_simple_product_post.dart';
 
 class ProductPostItem extends StatelessWidget {
-  final ProductPost post;
+  final SimpleProductPost post;
 
   const ProductPostItem(this.post, {super.key});
 
@@ -38,7 +38,7 @@ class ProductPostItem extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(post.content), // 제목
+          Text(post.title), // 제목
           _content(context), // 내용
           Text('${post.product.price}원'), // 가격
           _images // 좋아요, 채팅

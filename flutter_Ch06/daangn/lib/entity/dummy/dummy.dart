@@ -1,5 +1,5 @@
 import 'package:fast_app_base/common/cli_common.dart';
-import 'package:fast_app_base/entity/post/vo_product_post.dart';
+import 'package:fast_app_base/entity/post/vo_simple_product_post.dart';
 import 'package:fast_app_base/entity/product/product_status.dart';
 import 'package:fast_app_base/entity/product/vo_product.dart';
 import 'package:fast_app_base/entity/user/vo_user.dart';
@@ -29,7 +29,6 @@ final product1 = Product(
   user1,
   '아이폰17',
   700000,
-  '깨끗하게 잘 쓰던 물건이에요.',
   ProductStatus.normal,
   [
     picSum(100),
@@ -42,7 +41,6 @@ final product2 = Product(
   user1,
   '아이폰12',
   660000,
-  '잘 쓰던 물건이에요.',
   ProductStatus.booked,
   [
     picSum(120),
@@ -55,8 +53,7 @@ final product3 = Product(
   user1,
   '아이폰1',
   6600,
-  '물건이에요.',
-  ProductStatus.complete,
+  ProductStatus.booked,
   [
     picSum(120),
     picSum(103),
@@ -64,7 +61,7 @@ final product3 = Product(
   ],
 );
 
-final post1 = ProductPost(
+final post1 = SimpleProductPost(
   product1.user,
   product1,
   '글의 내용입니다.',
@@ -76,7 +73,7 @@ final post1 = ProductPost(
   ),
 );
 
-final post2 = ProductPost(
+final post2 = SimpleProductPost(
   product2.user,
   product2,
   '글의 입니다.',
@@ -88,7 +85,7 @@ final post2 = ProductPost(
   ),
 );
 
-final post3 = ProductPost(
+final post3 = SimpleProductPost(
   product3.user,
   product3,
   '글의 ㄱㄱ입니다.',
