@@ -13,13 +13,11 @@ class DaangnApi {
     return SimpleResult.success(notificationdummyList);
   }
 
-  static Future<SimpleResult<DetailProductPost, ApiError>> getPost(int id) async {
+  static Future<DetailProductPost> getPost(int id) async {
     await sleepAsync(500.ms);
-    return SimpleResult.success(
-      DetailProductPost(
-        simple: post1,
-        content: '깨끗하게 잘 쓰던 물건이에요.' '잘 쓰면 좋겠습니다. ' '감사합니다',
-      ),
+    return DetailProductPost(
+      simple: postList[id],
+      content: '깨끗하게 잘 쓰던 물건이에요.' '잘 쓰면 좋겠습니다. ' '감사합니다' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.' '깨끗하게 잘 쓰던 물건이에요.',
     );
   }
 }

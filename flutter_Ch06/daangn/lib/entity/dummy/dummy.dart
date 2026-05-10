@@ -62,6 +62,7 @@ final product3 = Product(
 );
 
 final post1 = SimpleProductPost(
+  1,
   product1.user,
   product1,
   '글의 내용입니다.',
@@ -74,6 +75,7 @@ final post1 = SimpleProductPost(
 );
 
 final post2 = SimpleProductPost(
+  2,
   product2.user,
   product2,
   '글의 입니다.',
@@ -86,6 +88,7 @@ final post2 = SimpleProductPost(
 );
 
 final post3 = SimpleProductPost(
+  3,
   product3.user,
   product3,
   '글의 ㄱㄱ입니다.',
