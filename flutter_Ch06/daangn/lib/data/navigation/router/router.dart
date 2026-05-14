@@ -3,6 +3,7 @@ import 'package:fast_app_base/entity/post/vo_simple_product_post.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
 import 'package:fast_app_base/screen/main/tab/chat/f_chat.dart';
 import 'package:fast_app_base/screen/main/tab/home/f_home.dart';
+import 'package:fast_app_base/screen/main/tab/home/write/s_write.dart';
 import 'package:fast_app_base/screen/main/tab/local_life/f_local_life.dart';
 import 'package:fast_app_base/screen/main/tab/my/f_my.dart';
 import 'package:fast_app_base/screen/main/tab/near_me/f_near_me.dart';
@@ -40,16 +41,20 @@ final router = GoRouter(
 
     // 전체 화면들 (탭바 X)
     GoRoute(
-      path: '/notification',
+      path: AppRoute.notification.path,
       builder: (_, __) => const NotificationScreen(),
     ),
     GoRoute(
-      path: '/post-detail/:id',
+      path: AppRoute.postDetail.path,
       builder: (_, state) {
         final id = int.parse(state.pathParameters['id']!);
         final post = state.extra as SimpleProductPost;
         return PostDetailScreen(id: id, simpleProductPost: post);
       },
+    ),
+    GoRoute(
+      path: AppRoute.write.path,
+      builder: (_, __) => const WriteScreen(),
     ),
   ],
 );

@@ -13,6 +13,7 @@ enum AppRoute {
   // 전체 화면
   notification('/notification'),
   postDetail('/post-detail/:id'),
+  write('/write')
   ;
 
   final String path;
@@ -24,4 +25,5 @@ extension AppRouteView on BuildContext {
   void pushPostDetail(int id, SimpleProductPost post) {
     push('/post-detail/$id', extra: post);
   }
+  void pushWrite() => push('/write');
 }

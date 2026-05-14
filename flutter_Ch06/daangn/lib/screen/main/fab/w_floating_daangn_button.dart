@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../data/navigation/app_route.dart';
+
 class FloatingDaangnButton extends HookConsumerWidget {
   const FloatingDaangnButton({super.key});
 
@@ -34,6 +36,7 @@ class FloatingDaangnButton extends HookConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               _menuButton(isExpanded, context.appColors.floatingActionLayer),
+              _menuButton2(isExpanded, context.appColors.floatingActionLayer, context),
               Padding(
                 padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).padding.bottom + kBottomNavigationBarHeight + 16,
@@ -103,7 +106,7 @@ class FloatingDaangnButton extends HookConsumerWidget {
         child: Container(
           width: 160,
           padding: const EdgeInsets.all(15),
-          margin: const EdgeInsets.only(right: 16, bottom: 10),
+          margin: const EdgeInsets.only(right: 16, bottom: 5),
           decoration: BoxDecoration(
             color: color,
             borderRadius: BorderRadius.circular(10),
@@ -117,6 +120,36 @@ class FloatingDaangnButton extends HookConsumerWidget {
               _floatingItem('부동산', '$basePath/fab/fab_04.png'),
               _floatingItem('중고차', '$basePath/fab/fab_05.png'),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _menuButton2(bool isExpanded, Color color, BuildContext context) {
+    return Tap(
+      onTap: () {
+        context.pushWrite();
+      },
+      child: IgnorePointer(
+        ignoring: !isExpanded,
+        child: AnimatedOpacity(
+          opacity: isExpanded ? 1 : 0,
+          duration: duration,
+          child: Container(
+            width: 160,
+            padding: const EdgeInsets.all(15),
+            margin: const EdgeInsets.only(right: 16, bottom: 10),
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              spacing: 10,
+              children: [
+                _floatingItem('내 물건 팔기', '$basePath/fab/fab_06.png')
+              ],
+            ),
           ),
         ),
       ),
